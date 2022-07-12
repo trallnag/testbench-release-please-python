@@ -15,7 +15,6 @@ jobs:
         with:
           release-type: python
           package-name: testbench_release_please_python
-          version-file: testbench_release_please_python/__init__.py
           bump-minor-pre-major: true
           changelog-types: |
             [
