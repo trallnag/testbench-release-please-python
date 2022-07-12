@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: primary
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [trunk]
+
+jobs:
+  primary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: python
+          package-name: testbench_release_please_python
+          version-path: testbench_release_please_python/__init__.py
+          bump-minor-pre-major: true
+          changelog-types: |
+            [
+              { "type": "feat",      "section": "Features",     "hidden": false },
+              { "type": "fix",       "section": "Bug Fixes",    "hidden": false },
+              { "type": "revert",    "section": "Reverts",      "hidden": false },
+              { "type": "perf",      "section": "Performance",  "hidden": false },
+              { "type": "refactor",  "section": "Refactor",     "hidden": false },
+              { "type": "test",      "section": "Tests",        "hidden": false },
+              { "type": "docs",      "section": "Docs",         "hidden": false },
+              { "type": "build",     "section": "Build",        "hidden": false },
+              { "type": "ci",        "section": "CI/CD",        "hidden": false },
+              { "type": "style",     "section": "Styles",       "hidden": false },
+              { "type": "chore",     "section": "Chores",       "hidden": true }
+            ]
