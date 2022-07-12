@@ -14,7 +14,6 @@ jobs:
       - uses: google-github-actions/release-please-action@v3
         with:
           release-type: python
-          package-name: testbench_release_please_python
           bump-minor-pre-major: true
           changelog-types: |
             [
