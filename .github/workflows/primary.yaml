@@ -7,6 +7,8 @@ on:
   push:
     branches: [trunk]
 
+concurrency: primary
+
 jobs:
   primary:
     runs-on: ubuntu-latest
