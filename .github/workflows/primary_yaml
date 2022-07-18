@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
 name: primary
 
 on:
@@ -5,12 +7,10 @@ on:
   pull_request:
   push:
 
+concurrency: primary
+
 jobs:
   primary:
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ['3.10', '3.7']
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -18,12 +18,12 @@ jobs:
       - id: setup-python
         uses: actions/setup-python@v3
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: "3.10"
 
       - uses: actions/cache@v2
         with:
           path: ~/.local
-          key: local-${{ matrix.python-version }}
+          key: local-0
 
       - uses: snok/install-poetry@v1
         with:
@@ -35,37 +35,11 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .venv
-          key: venv-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
+          key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
 
-      - name: Install dependencies with Poetry
-        if: steps.cached-poetry-venv.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root
-
-      - name: Run tests with Pytest
-        run: poetry run pytest
-
-      - name: Cache pre-commit
-        if: strategy.job-index == 0
-        uses: actions/cache@v3
+      - uses: google-github-actions/release-please-action@v3
         with:
-          path: ~/.cache/pre-commit
-          key: pre-commit-${{ matrix.python-version }}
-
-      - name: Setup pre-commit
-        if: strategy.job-index == 0
-        run: poetry run pre-commit install
-
-      - name: Execute pre-commit
-        if: strategy.job-index == 0
-        run: poetry run pre-commit run -v --show-diff-on-failure
-
-      - name: Release Please
-        uses: google-github-actions/release-please-action@v3
-        if: |
-          strategy.job-index == 0
-          && github.ref == 'refs/heads/trunk'
-        with:
-          release-type: simple
+          release-type: python
           bump-minor-pre-major: true
           changelog-types: |
             [

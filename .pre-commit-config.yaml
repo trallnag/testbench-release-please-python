@@ -70,7 +70,7 @@ repos:
         entry: >-
           poetry run dmypy run
           --timeout 3600
-          -- testbench_release_please_python
+          -- src/testbench-tuna
         require_serial: false
         pass_filenames: false
         types: [python]
