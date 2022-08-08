@@ -21,9 +21,10 @@ jobs:
           virtualenvs-in-project: true
           installer-parallel: true
 
-      - name: Publish with Poetry to TestPyPI
-        run: |
-          poetry config repositories.test-pypi https://test.pypi.org/legacy/
-          poetry publish --build -n -r test-pypi -u __token__ -p "$TOKEN"
+      - name: Configure TestPyPI repo with Poetry
+        run: poetry config repositories.test-pypi https://test.pypi.org/legacy/
+
+      - name: Publish to TestPyPI with Poetry
+        run: poetry publish --build -n -r test-pypi -u __token__ -p "$TOKEN"
         env:
-          TOKEN: ${{ secrets.TEST_PYPI_TOKEN }}
+          TOKEN: ${{ secrets.TESTPYPI_TOKEN }}
