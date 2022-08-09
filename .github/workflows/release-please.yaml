@@ -1,30 +1,69 @@
 name: Release Please
 
+#
+# Central release workflow.
+#
+# - Uses Google's Release Please for release management.
+# - Python Poetry used for publishing package to PyPI.
+# - Does not run any checks, tests, or scans.
+#
+
 on:
-  workflow_dispatch:
+  push:
+    branches: [trunk]
 
 jobs:
   release:
+    name: Release
     runs-on: ubuntu-latest
     steps:
+      - name: Release Please
+        uses: google-github-actions/release-please-action@v3
+        id: release_please
+        with:
+          release-type: python
+          bump-minor-pre-major: true
+          changelog-types: |
+            [
+              { "type": "feat",      "section": "Features",     "hidden": false },
+              { "type": "fix",       "section": "Bug Fixes",    "hidden": false },
+              { "type": "revert",    "section": "Reverts",      "hidden": false },
+              { "type": "perf",      "section": "Performance",  "hidden": false },
+              { "type": "refactor",  "section": "Refactor",     "hidden": false },
+              { "type": "test",      "section": "Tests",        "hidden": false },
+              { "type": "docs",      "section": "Docs",         "hidden": false },
+              { "type": "build",     "section": "Build",        "hidden": false },
+              { "type": "ci",        "section": "CI/CD",        "hidden": false },
+              { "type": "style",     "section": "Styles",       "hidden": false },
+              { "type": "chore",     "section": "Chores",       "hidden": true }
+            ]
+
       - uses: actions/checkout@v3
+        if: ${{ steps.release_please.outputs.release_created }}
 
       - name: Setup Python
         uses: actions/setup-python@v4
+        if: ${{ steps.release_please.outputs.release_created }}
         with:
           python-version: "3.10"
 
+      - name: Handle cached Poetry
+        uses: actions/cache@v2
+        if: ${{ steps.release_please.outputs.release_created }}
+        with:
+          path: ~/.local
+          key: poetry-0
+
       - name: Setup Poetry
         uses: snok/install-poetry@v1
+        if: ${{ steps.release_please.outputs.release_created }}
         with:
           virtualenvs-create: true
           virtualenvs-in-project: true
           installer-parallel: true
 
-      - name: Configure TestPyPI repo with Poetry
-        run: poetry config repositories.test-pypi https://test.pypi.org/legacy/
-
-      - name: Publish to TestPyPI with Poetry
-        run: poetry publish --build -n -r test-pypi -u __token__ -p "$TOKEN"
+      - name: Publish to PyPI with Poetry
+        if: ${{ steps.release_please.outputs.release_created }}
+        run: poetry publish --build -n -u __token__ -p "$TOKEN"
         env:
-          TOKEN: ${{ secrets.TESTPYPI_TOKEN }}
+          TOKEN: ${{ secrets.PYPI_TOKEN }}

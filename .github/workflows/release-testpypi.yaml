@@ -1,5 +1,12 @@
 name: Release TestPyPI
 
+#
+# Build and release package to TestPyPI using Poetry.
+#
+# - Can be used safely on all branches (even PRs).
+# - Will fail if the the version is already available on TestPyPI.
+#
+
 on:
   workflow_dispatch:
 
