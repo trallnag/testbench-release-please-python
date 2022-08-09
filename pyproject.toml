@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "testbench-tuna"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["Tim Schwenke <tim.schwenke@trallnag.com>"]
 license = "ISC"
