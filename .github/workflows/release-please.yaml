@@ -14,8 +14,8 @@ on:
     branches: [trunk]
 
 jobs:
-  release:
-    name: Release
+  primary:
+    name: Primary
     runs-on: ubuntu-latest
     steps:
       - name: Release Please

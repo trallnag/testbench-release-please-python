@@ -12,6 +12,7 @@ on:
 
 jobs:
   primary:
+    name: Primary
     strategy:
       fail-fast: false
       matrix:
@@ -45,7 +46,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .venv
-          key: venv-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
+          key: venv-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}-0
 
       - name: Install dependencies with Poetry
         if: steps.handle-cached-venv.outputs.cache-hit != 'true'
