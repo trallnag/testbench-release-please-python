@@ -25,20 +25,23 @@ jobs:
       # ------------------------------------------------------------------------
       # Python & Poetry.
 
+      - name: Cache Poetry installation
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.local/bin/poetry
+            ~/.local/share/pypoetry
+          key: poetry-installation-${{ matrix.python-version }}-0
 
+      - name: Setup Poetry
+        run: curl -sSL https://install.python-poetry.org | python -
 
       # - name: Setup Python
       #   uses: actions/setup-python@v4
       #   with:
       #     python-version: ${{ matrix.python-version }}
 
-      # - name: Cache Poetry installation
-      #   uses: actions/cache@v3
-      #   with:
-      #     path: |
-      #       ~/.local/bin/poetry
-      #       ~/.local/share/pypoetry
-      #     key: poetry-installation-${{ matrix.python-version }}-0
+
 
       # - name: Cache Poetry virtualenvs
       #   uses: actions/cache@v3
@@ -46,8 +49,7 @@ jobs:
       #     path: ~/.cache/pypoetry
       #     key: poetry-virtualenvs-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}-0
 
-      - name: Setup Poetry
-        run: curl -sSL https://install.python-poetry.org | python -
+
 
       - run: find $HOME -name '*poetry*'
 
