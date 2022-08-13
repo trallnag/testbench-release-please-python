@@ -25,16 +25,19 @@ jobs:
       # ------------------------------------------------------------------------
       # Python & Poetry.
 
-      - name: Setup Poetry
-        run: curl -sSL https://install.python-poetry.org | python -
 
-      - run: find $HOME -name '*poetry*'
 
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-          cache: poetry
+
+      - name: Setup Poetry
+        run: curl -sSL https://install.python-poetry.org | python -
+
+
+
+      - run: find $HOME -name '*poetry*'
 
 
 
