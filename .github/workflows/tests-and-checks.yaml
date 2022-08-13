@@ -46,17 +46,17 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .venv
-          key: venv-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}-0
+          key: venv-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}-1
 
       - name: Install dependencies with Poetry
         if: steps.handle-cached-venv.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root
+        run: poetry install --no-interaction
 
       # ------------------------------------------------------------------------
       # Tests.
 
       - name: Run tests with Pytest
-        run: poetry run pytest --cov=src/testbench_tuna --cov-report=term-missing:skip-covered tests/
+        run: poetry config cache-dir && poetry run pytest --cov=src/testbench_tuna --cov-report=term-missing:skip-covered tests/
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
