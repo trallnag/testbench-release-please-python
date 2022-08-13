@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.10", "3.7"]
+        python-version: ["3.10"]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,60 +26,66 @@ jobs:
       # Python & Poetry.
 
       - name: Setup Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
+          cache: poetry
 
-      - name: Cache Poetry
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cache/pypoetry
-            ~/.local
-          key: poetry-${{ matrix.python-version }}-0
+      - name: Setup Poetry
+        run: curl -sSL https://install.python-poetry.org | python -
 
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-        with:
-          virtualenvs-create: true
-          virtualenvs-in-project: true
-          installer-parallel: true
+      - run: find $HOME -name '*poetry*'
 
-      - name: Cache venv
-        id: cache-venv
-        uses: actions/cache@v2
-        with:
-          path: .venv
-          key: venv-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}-0
+      # - name: Cache Poetry
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: |
+      #       ~/.cache/pypoetry
+      #       ~/.local
+      #     key: poetry-${{ matrix.python-version }}-0
 
-      - name: Install venv
-        if: steps.cache-venv.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction
+      # - name: Install Poetry
+      #   uses: snok/install-poetry@v1
+      #   with:
+      #     virtualenvs-create: true
+      #     virtualenvs-in-project: true
+      #     installer-parallel: true
 
-      # ------------------------------------------------------------------------
-      # Tests.
+      # - name: Cache venv
+      #   id: cache-venv
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: .venv
+      #     key: venv-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}-0
 
-      - name: Run tests with Pytest
-        run: poetry run pytest --cov=src/testbench_tuna --cov-report=term-missing:skip-covered tests/
+      # - name: Install venv
+      #   if: steps.cache-venv.outputs.cache-hit != 'true'
+      #   run: poetry install --no-interaction
 
-      - name: Upload coverage to Codecov
-        if: strategy.job-index == 0
-        uses: codecov/codecov-action@v3
+      # # ------------------------------------------------------------------------
+      # # Tests.
 
-      # ------------------------------------------------------------------------
-      # Pre-commit.
+      # - name: Run tests with Pytest
+      #   run: poetry run pytest --cov=src/testbench_tuna --cov-report=term-missing:skip-covered tests/
 
-      - name: Pre-commit Cache
-        if: strategy.job-index == 0
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/pre-commit
-          key: pre-commit-${{ matrix.python-version }}-0
+      # - name: Upload coverage to Codecov
+      #   if: strategy.job-index == 0
+      #   uses: codecov/codecov-action@v3
 
-      - name: Pre-commit Setup
-        if: strategy.job-index == 0
-        run: poetry run pre-commit install
+      # # ------------------------------------------------------------------------
+      # # Pre-commit.
 
-      - name: Pre-commit
-        if: strategy.job-index == 0
-        run: poetry run pre-commit run -v --show-diff-on-failure
+      # - name: Pre-commit Cache
+      #   if: strategy.job-index == 0
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: ~/.cache/pre-commit
+      #     key: pre-commit-${{ matrix.python-version }}-0
+
+      # - name: Pre-commit Setup
+      #   if: strategy.job-index == 0
+      #   run: poetry run pre-commit install
+
+      # - name: Pre-commit
+      #   if: strategy.job-index == 0
+      #   run: poetry run pre-commit run -v --show-diff-on-failure
