@@ -34,9 +34,9 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            /home/trallnag/.cache/pypoetry
-            /home/trallnag/.local/bin/poetry
-            /home/trallnag/.local/share/pypoetry
+            ~/.cache/pypoetry
+            ~/.local/bin/poetry
+            ~/.local/venv
           key: poetry-${{ matrix.python-version }}-0
 
       - name: Install Poetry
@@ -53,7 +53,7 @@ jobs:
           path: .venv
           key: venv-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}-0
 
-      - name: Install dependencies
+      - name: Install virtual environment
         if: steps.cache-virtual-environment.outputs.cache-hit != 'true'
         run: poetry install --no-interaction
 
@@ -61,7 +61,7 @@ jobs:
       # Tests.
 
       - name: Run tests with Pytest
-        run: find ~/ -name '*poetry*' && poetry run pytest --cov=src/testbench_tuna --cov-report=term-missing:skip-covered tests/
+        run: poetry run pytest --cov=src/testbench_tuna --cov-report=term-missing:skip-covered tests/
 
       - name: Upload coverage to Codecov
         if: strategy.job-index == 0
