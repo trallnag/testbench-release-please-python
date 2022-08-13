@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.10", "3.7"]
+        python-version: ["3.10"]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,8 +35,7 @@ jobs:
         with:
           path: |
             ~/.cache/pypoetry
-            ~/.local/bin/poetry
-            ~/.local/venv
+            ~/.local
           key: poetry-${{ matrix.python-version }}-0
 
       - name: Install Poetry
@@ -46,15 +45,15 @@ jobs:
           virtualenvs-in-project: true
           installer-parallel: true
 
-      - name: Cache virtual environment
-        id: cache-virtual-environment
+      - name: Cache venv
+        id: cache-venv
         uses: actions/cache@v2
         with:
           path: .venv
           key: venv-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}-0
 
       - name: Install virtual environment
-        if: steps.cache-virtual-environment.outputs.cache-hit != 'true'
+        if: steps.cache-venv.outputs.cache-hit != 'true'
         run: poetry install --no-interaction
 
       # ------------------------------------------------------------------------
