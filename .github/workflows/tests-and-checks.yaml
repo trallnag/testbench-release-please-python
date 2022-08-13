@@ -74,7 +74,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.cache/pre-commit
-          key: pre-commit-${{ matrix.python-version }}
+          key: pre-commit-${{ matrix.python-version }}-0
 
       - name: Pre-commit Setup
         if: strategy.job-index == 0
