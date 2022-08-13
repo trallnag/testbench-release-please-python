@@ -44,7 +44,7 @@ jobs:
       - name: Cache Poetry cache
         uses: actions/cache@v3
         with:
-          path: $(poetry config cache-dir)
+          path: ~/.cache/pypoetry
           key: poetry-cache-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}-0
 
       - name: Install deps with Poetry
