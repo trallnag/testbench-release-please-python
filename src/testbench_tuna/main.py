@@ -1,3 +1,5 @@
+from typing import Union
+
 from fastapi import FastAPI
 
 from . import utils
@@ -11,5 +13,5 @@ async def root():
 
 
 @app.get("/pizza-size")
-async def pizza_size(diameter: int | float):
+async def pizza_size(diameter: Union[int, float]):
     return {"area": utils.pizza_size(diameter)}
