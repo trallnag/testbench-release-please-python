@@ -4,8 +4,8 @@ help() {
     cat << EOF
 Wrapper for running tests with Pytest.
 
-- Includes code coverage report.
-- Not used within GitHub Actions workflows.
+- Includes code coverage report generation.
+- Used within GitHub Actions workflows.
 - Used for local and interactive development.
 EOF
 }
