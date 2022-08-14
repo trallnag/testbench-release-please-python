@@ -40,29 +40,21 @@ jobs:
             ]
 
       - name: Checkout
+        if: ${{ steps.release_please.outputs.release_created }}
         uses: actions/checkout@v3
-        if: ${{ steps.release_please.outputs.release_created }}
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
+      - name: Cache Poetry installation
         if: ${{ steps.release_please.outputs.release_created }}
+        uses: actions/cache@v3
         with:
-          python-version: "3.10"
+          path: |
+            ~/.local/bin/poetry
+            ~/.local/share/pypoetry
+          key: poetry-installation-0
 
-      - name: Handle cached Poetry
-        uses: actions/cache@v2
+      - name: Install Poetry
         if: ${{ steps.release_please.outputs.release_created }}
-        with:
-          path: ~/.local
-          key: poetry-0
-
-      - name: Setup Poetry
-        uses: snok/install-poetry@v1
-        if: ${{ steps.release_please.outputs.release_created }}
-        with:
-          virtualenvs-create: true
-          virtualenvs-in-project: true
-          installer-parallel: true
+        run: curl -sSL https://install.python-poetry.org | python -
 
       - name: Publish to PyPI with Poetry
         if: ${{ steps.release_please.outputs.release_created }}
