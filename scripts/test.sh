@@ -22,4 +22,5 @@ cd "$project_dir"
 poetry run pytest \
   --cov=src/testbench_tuna \
   --cov-report=term-missing:skip-covered \
+  --cov-report=xml \
   tests/
