@@ -5,6 +5,12 @@ from testbench_tuna import main
 client = TestClient(main.app)
 
 
+def test_get_root():
+    response = client.get("/")
+    assert response.status_code == 200
+    assert response.json() == {"message": "Hello World"}
+
+
 def test_get_pizza_size():
     response = client.get("/pizza-size", params={"diameter": 666})
     assert response.status_code == 200
