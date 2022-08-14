@@ -13,5 +13,5 @@ async def root():
 
 
 @app.get("/pizza-size")
-async def pizza_size(diameter: Union[int, float]):
+async def get_pizza_size(diameter: Union[int, float]):
     return {"area": utils.pizza_size(diameter)}
