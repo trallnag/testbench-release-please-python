@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.2.0](https://github.com/trallnag/testbench-tuna/compare/v0.1.1...v0.2.0) (2022-08-16)
+
+
+### Features
+
+* Add user email info endpoint ([#15](https://github.com/trallnag/testbench-tuna/issues/15)) ([70ce9ac](https://github.com/trallnag/testbench-tuna/commit/70ce9ac93c93f0423d775d7fe814b4bb79a8ed75))
+
+
+### Refactor
+
+* Rename function root to get_root ([d3effe5](https://github.com/trallnag/testbench-tuna/commit/d3effe5e1dc20ae4d8f7ca6eb900c674bdc71b8a))
+
+
+### Tests
+
+* Add test for get_root ([b012a6c](https://github.com/trallnag/testbench-tuna/commit/b012a6c3f0b5e0d0efdae4422b2c1b2ac0229121))
+
+
+### Docs
+
+* Adjust badges in project README ([3cfb8f4](https://github.com/trallnag/testbench-tuna/commit/3cfb8f477de45ea11d0d42b126dcdccb1ce0fb45))
+* Update poetry.md ([4421038](https://github.com/trallnag/testbench-tuna/commit/442103825cfacae1cce303e0cc723b6c1b25f372))
+
 ## [0.1.1](https://github.com/trallnag/testbench-tuna/compare/v0.1.0...v0.1.1) (2022-08-09)
 
 ### Bug Fixes
