@@ -2,6 +2,10 @@
 
 ## [0.2.0](https://github.com/trallnag/testbench-tuna/compare/v0.1.1...v0.2.0) (2022-08-16)
 
+### ✨ Highlights ✨
+
+* Added new endpoint `/users/{username}/email` that can be used to retrieve the email for a specific user by username ([#15](https://github.com/trallnag/testbench-tuna/issues/15)). Thanks to @crispymouse!
+
 
 ### Features
 
