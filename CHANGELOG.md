@@ -2,6 +2,10 @@
 
 ## [0.2.1](https://github.com/trallnag/testbench-tuna/compare/v0.2.0...v0.2.1) (2022-08-16)
 
+### 🍀 Summary 🍀
+
+Nothing relevant for users. Tiny patch release that updates the metadata available on the PyPI repository page. Also a few changes related to Codecov and GitHub Actions.
+
 
 ### CI/CD
 
