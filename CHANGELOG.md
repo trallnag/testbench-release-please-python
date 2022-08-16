@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.2.1](https://github.com/trallnag/testbench-tuna/compare/v0.2.0...v0.2.1) (2022-08-16)
+
+
+### CI/CD
+
+* **codecov:** Rename extension YML to YAML ([d4a7ada](https://github.com/trallnag/testbench-tuna/commit/d4a7ada9703ddcdbdc263ce0db8b0bbf5c475bc8))
+* **pre-commit:** Add poetry.lock to exclude ([64cf72c](https://github.com/trallnag/testbench-tuna/commit/64cf72c3adec7bd5d9a3b0e7458dde89913c094f))
+* Reformat tests-and-checks.yaml ([78f9ae3](https://github.com/trallnag/testbench-tuna/commit/78f9ae3f6f770ea647d54694ee5d135d9a09f810))
+
+
+### Docs
+
+* **pyproject:** Add description and repository parameters ([f3d9b18](https://github.com/trallnag/testbench-tuna/commit/f3d9b184ef41da13ad0cef74ccf1908b9d85cb41))
+
 ## [0.2.0](https://github.com/trallnag/testbench-tuna/compare/v0.1.1...v0.2.0) (2022-08-16)
 
 ### ✨ Highlights ✨
