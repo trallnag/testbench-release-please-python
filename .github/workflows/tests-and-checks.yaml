@@ -7,8 +7,7 @@ name: Tests and Checks
 on:
   workflow_dispatch:
   pull_request:
-    branches-ignore:
-      - "release-please--**"
+    branches-ignore: [release-please--**]
   push:
     branches: [trunk]
 
