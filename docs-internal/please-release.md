@@ -30,3 +30,18 @@ But there is a manual "hack" around this missing feature.
 
 Make sure to do this right before you are ready to release. Else the manually
 injected content will be scrambled.
+
+### Recommended custom info block
+
+```txt
+### 🍀 Summary 🍀
+
+<One line summarizing changes.>
+
+
+### ✨ Highlights ✨
+
+<List of highlights with attributions.>
+
+
+```
