@@ -2,11 +2,7 @@
 
 help() {
     cat << EOF
-Wrapper for running tests with Pytest.
-
-- Includes code coverage report generation.
-- Used within GitHub Actions workflows.
-- Used for local and interactive development.
+Wrapper for running Uvicorn development server.
 EOF
 }
 
