@@ -4,15 +4,14 @@ Thank you for your interest in improving this project. Your contributions are
 appreciated.
 
 In the following you can find a collection of frequently asked questions and
-hopefully good answers. Here is an overview over all existing entries:
+hopefully good answers.
 
 - [How to setup local dev environment?](#how-to-setup-local-dev-environment)
 - [How to start a development server?](#how-to-start-a-development-server)
 - [How to release a new version?](#how-to-release-a-new-version)
 
 Also consider taking a look at the internal documentation at
-[`docs-internal`](docs-internal). There you can find more detailed information
-in various topics around this project.
+[`docs-internal`](docs-internal).
 
 ## How to setup local dev environment?
 
