@@ -2,11 +2,7 @@
 
 help() {
   cat << EOF
-Wrapper for running tests with Pytest.
-
-- Includes code coverage report generation.
-- Used within GitHub Actions workflows.
-- Used for local and interactive development.
+Wrapper for running shellcheck.
 EOF
 }
 
@@ -20,8 +16,9 @@ project_dir="$(dirname "$source_dir")"
 
 cd "$project_dir" || exit
 
-poetry run pytest \
-  --cov=src/testbench_tuna \
-  --cov-report=term-missing:skip-covered \
-  --cov-report=xml \
-  tests/
+shellcheck \
+  --check-sourced \
+  --color=always \
+  --format=tty \
+  --shell=sh \
+  scripts/*.sh
