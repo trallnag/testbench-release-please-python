@@ -1,22 +1,22 @@
-# Contributing
+# Contributing <!-- omit in toc -->
 
 Thank you for your interest in improving this project. Your contributions are
 appreciated.
 
-<!--TOC-->
+In the following you can find a collection of frequently asked questions and
+hopefully good answers. Here is an overview over all existing entries:
 
 - [How to setup local dev environment?](#how-to-setup-local-dev-environment)
-  - [Poetry](#poetry)
-  - [Pre-commit](#pre-commit)
-  - [Tests](#tests)
 - [How to start a development server?](#how-to-start-a-development-server)
 - [How to release a new version?](#how-to-release-a-new-version)
 
-<!--TOC-->
+Also consider taking a look at the internal documentation at
+[`docs-internal`](docs-internal). There you can find more detailed information
+in various topics around this project.
 
 ## How to setup local dev environment?
 
-### Poetry
+### Poetry <!-- omit in toc -->
 
 Ensure that [Python Poetry](https://python-poetry.org/) is installed. After
 cloning this project (probably as a fork), install the environment and enter a
@@ -27,9 +27,9 @@ poetry install
 poetry shell
 ```
 
-Read [`poetry.md`](poetry.md) for more information.
+Read [`docs-internal/poetry.md`](docs-internal/poetry.md) for more information.
 
-### Pre-commit
+### Pre-commit <!-- omit in toc -->
 
 Setup the pre-commit hooks. Note that you don't have to install Pre-commit
 manually. It is part of the dev dependencies managed by pre-commit.
@@ -45,9 +45,10 @@ Run all hooks to make sure things are alright.
 pre-commit run -a
 ```
 
-Read [`pre-commit.md`](pre-commit.md) for more information.
+Read [`docs-internal/pre-commit.md`](docs-internal/pre-commit.md) for more
+information.
 
-### Tests
+### Tests <!-- omit in toc -->
 
 Run the tests to make sure everything is setup correctly. You can either use the
 helper script to trigger tests or execute `pytest` directly.
@@ -69,8 +70,8 @@ dependencies. You can either use the helper script to start a server or execute
 ## How to release a new version?
 
 For release management Release Please is used. Read
-[`please-release.md`](./please-release.md) for further information. The general
-approach is described in the following.
+[`docs-internal/please-release.md`](docs-internal/please-release.md) for further
+information. The general approach is described in the following.
 
 Ensure that changes to be released are merged or pushed to the default branch.
 Ensure that the relevant commits follow the conventional commits convention.

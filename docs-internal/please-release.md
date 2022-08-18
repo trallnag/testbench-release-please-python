@@ -33,6 +33,9 @@ injected content will be scrambled.
 
 ### Recommended custom info block
 
+Use a block along the following lines to augument the automatically generated
+release notes and changelog.
+
 ```txt
 ### 🍀 Summary 🍀
 
@@ -45,3 +48,5 @@ injected content will be scrambled.
 
 
 ```
+
+The duplicate newlines mirror the behavior of Release Please.
