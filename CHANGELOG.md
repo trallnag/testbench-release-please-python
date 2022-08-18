@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.2.2](https://github.com/trallnag/testbench-tuna/compare/v0.2.1...v0.2.2) (2022-08-18)
+
+
+### CI/CD
+
+* Add workflow_dispatch to codeql.yaml ([a179c95](https://github.com/trallnag/testbench-tuna/commit/a179c95e70b44ec8d6ad32641e227c44631b3bbf))
+
+
+### Docs
+
+* Adjust help msg in uvicorn.sh ([46d796d](https://github.com/trallnag/testbench-tuna/commit/46d796d27cd09b51f442134036244b17f6eb061f))
+* Replace md-toc with vscode extension and refactor docs ([8527462](https://github.com/trallnag/testbench-tuna/commit/852746258196c1148bfabe4cf7c54439517dcf1b))
+* Restructure internal docs ([1af7dd4](https://github.com/trallnag/testbench-tuna/commit/1af7dd4e2a0f1c7a2410c3c7abbfe9c7c9808da4))
+* Update and rename example settings for VS Code ([4e8782e](https://github.com/trallnag/testbench-tuna/commit/4e8782e04c3dd3dcf80ca2ed325d442dc422e487))
+
 ## [0.2.1](https://github.com/trallnag/testbench-tuna/compare/v0.2.0...v0.2.1) (2022-08-16)
 
 ### 🍀 Summary 🍀
