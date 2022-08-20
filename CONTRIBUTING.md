@@ -10,8 +10,8 @@ hopefully good answers.
 - [How to start a development server?](#how-to-start-a-development-server)
 - [How to release a new version?](#how-to-release-a-new-version)
 
-Also consider taking a look at the internal documentation at
-[`docs-internal`](docs-internal).
+Also consider taking a look at the development documentation at
+[`docs/devel`](docs/devel).
 
 ## How to setup local dev environment?
 
@@ -26,7 +26,7 @@ poetry install
 poetry shell
 ```
 
-Read [`docs-internal/poetry.md`](docs-internal/poetry.md) for more information.
+Read [`docs/devel/poetry.md`](docs/devel/poetry.md) for more information.
 
 ### Pre-commit <!-- omit in toc -->
 
@@ -44,7 +44,7 @@ Run all hooks to make sure things are alright.
 pre-commit run -a
 ```
 
-Read [`docs-internal/pre-commit.md`](docs-internal/pre-commit.md) for more
+Read [`docs/devel/pre-commit.md`](docs/devel/pre-commit.md) for more
 information.
 
 ### Tests <!-- omit in toc -->
@@ -69,7 +69,7 @@ dependencies. You can either use the helper script to start a server or execute
 ## How to release a new version?
 
 For release management Release Please is used. Read
-[`docs-internal/please-release.md`](docs-internal/please-release.md) for further
+[`docs/devel/please-release.md`](docs/devel/please-release.md) for further
 information. The general approach is described in the following.
 
 Ensure that changes to be released are merged or pushed to the default branch.
