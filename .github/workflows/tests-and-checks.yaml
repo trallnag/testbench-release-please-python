@@ -83,15 +83,19 @@ jobs:
       # ------------------------------------------------------------------------
       # Asdf.
 
+      - name: Install asdf
+        uses: asdf-vm/actions/setup@v1
+
       - name: Cache asdf
+        id: cache-asdf
         if: strategy.job-index == 0
         uses: actions/cache@v3
         with:
           path: ~/.asdf
-          key: asdf-0
+          key: asdf-${{ hashFiles('**/.tool-versions') }}-0
 
       - name: Install tools with asdf
-        if: strategy.job-index == 0
+        if: strategy.job-index == 0 && steps.cache-asdf.outputs.cache-hit != 'true'
         uses: asdf-vm/actions/install@v1
 
       - name: Run shfmt
