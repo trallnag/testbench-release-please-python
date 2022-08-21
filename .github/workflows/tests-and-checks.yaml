@@ -79,3 +79,25 @@ jobs:
 
       - name: Execute Pre-commit
         run: poetry run pre-commit run -v --show-diff-on-failure
+
+      # ------------------------------------------------------------------------
+      # Asdf.
+
+      - name: Cache asdf
+        if: strategy.job-index == 0
+        uses: actions/cache@v3
+        with:
+          path: ~/.asdf
+          key: asdf-0
+
+      - name: Install tools with asdf
+        if: strategy.job-index == 0
+        uses: asdf-vm/actions/install@v1
+
+      - name: Run shfmt
+        if: strategy.job-index == 0
+        run: ./scripts/shfmt.sh
+
+      - name: Run shellcheck
+        if: strategy.job-index == 0
+        run: ./scripts/shellcheck.sh
