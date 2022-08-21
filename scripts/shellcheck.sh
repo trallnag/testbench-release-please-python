@@ -9,16 +9,18 @@ EOF
 case $1 in -h | --help | help) help && exit ;; esac
 
 # shellcheck disable=SC1007
-source_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
-project_dir="$(dirname "$source_dir")"
+script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+
+. "$script_dir/base.sh"
 
 # ------------------------------------------------------------------------------
 
-cd "$project_dir" || exit
+cd "$PROJECT_DIR" || exit 1
 
 shellcheck \
   --check-sourced \
   --color=always \
   --format=tty \
   --shell=sh \
+  --source-path=SCRIPTDIR \
   scripts/*.sh
