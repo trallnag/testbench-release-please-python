@@ -100,8 +100,8 @@ jobs:
 
       - name: Run shfmt
         if: strategy.job-index == 0
-        run: ./scripts/shfmt.sh
+        run: scripts/shfmt.sh
 
       - name: Run shellcheck
         if: strategy.job-index == 0
-        run: ./scripts/shellcheck.sh
+        run: scripts/shellcheck.sh
