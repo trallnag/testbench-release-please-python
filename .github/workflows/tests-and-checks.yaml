@@ -78,7 +78,9 @@ jobs:
           path: |
             ~/.cache/pre-commit
             .mypy_cache
-          key: pre-commit-${{ matrix.python-version }}-0
+          key: pre-commit-${{ matrix.python-version }}-${{ hashFiles('.pre-commit-config.yaml') }}-0
+          restore-keys: |
+            pre-commit-${{ matrix.python-version }}-
 
       - name: Setup Pre-commit
         run: poetry run pre-commit install
