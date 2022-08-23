@@ -27,7 +27,7 @@ jobs:
           path: |
             ~/.local/bin/poetry
             ~/.local/share/pypoetry
-          key: poetry-installation-${{ env.POETRY_VERSION }}-0
+          key: ${{ runner.os }}-poetry-installation-${{ env.poetry_version }}-0
 
       - name: Install Poetry
         run: curl -sSL https://install.python-poetry.org | python -

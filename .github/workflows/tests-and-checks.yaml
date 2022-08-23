@@ -41,8 +41,6 @@ jobs:
             ~/.local/bin/poetry
             ~/.local/share/pypoetry
           key: ${{ runner.os }}-poetry-installation-${{ matrix.python-version }}-${{ env.poetry_version }}-0
-          restore-keys: |
-            ${{ runner.os }}-poetry-installation-${{ matrix.python-version }}-
 
       - name: Install Poetry
         run: curl -sSL https://install.python-poetry.org | python -
