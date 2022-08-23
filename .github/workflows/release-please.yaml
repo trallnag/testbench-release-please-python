@@ -14,7 +14,7 @@ on:
     branches: [trunk]
 
 env:
-  poetry_version: "1.1.15"
+  poetry_version: "1.1.14"
 
 jobs:
   primary:
