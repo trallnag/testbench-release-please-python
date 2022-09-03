@@ -1,5 +1,79 @@
 # Changelog
 
+## [0.3.0](https://github.com/trallnag/testbench-tuna/compare/v0.2.2...v0.3.0) (2022-09-03)
+
+
+### Features
+
+* Add py.typed for enhanced typing annotations ([449ecb0](https://github.com/trallnag/testbench-tuna/commit/449ecb0bfef70bd61591f2c5b7b39af20cfd4fc3))
+* Dummy ([6b4d07c](https://github.com/trallnag/testbench-tuna/commit/6b4d07c8516cc80d2e2c810bdfdcd6df93f5567e))
+
+
+### Bug Fixes
+
+* Dummy ([e5f5e51](https://github.com/trallnag/testbench-tuna/commit/e5f5e515e147345c8d5531f09bc5abe516b30086))
+
+
+### Reverts
+
+* Dummy ([8ddc1c8](https://github.com/trallnag/testbench-tuna/commit/8ddc1c8248a17a4129e72f3874bb75fd493f3d4a))
+
+
+### Performance
+
+* Dummy ([900df74](https://github.com/trallnag/testbench-tuna/commit/900df7464ae81453dadee4a15d8e2d7dd4efb019))
+
+
+### Refactor
+
+* Dummy ([de53723](https://github.com/trallnag/testbench-tuna/commit/de53723b222448919a2bfe953e536ec4433066fa))
+
+
+### Tests
+
+* Dummy ([da2e690](https://github.com/trallnag/testbench-tuna/commit/da2e690d163ecabf3ff4352e451a7f37bf4e9c86))
+
+
+### Build
+
+* Dummy ([53b0cdb](https://github.com/trallnag/testbench-tuna/commit/53b0cdb18f2bcc5d486fba75a896d5b9bd0c950a))
+
+
+### Styles
+
+* Dummy ([ef74413](https://github.com/trallnag/testbench-tuna/commit/ef74413fdc160c235b6a200d49277992bbf866c9))
+
+
+### CI/CD
+
+* Add and update dev scripts ([c7a9ff7](https://github.com/trallnag/testbench-tuna/commit/c7a9ff7bd1ec435538efdee527528d47a796c1b3))
+* Add asdf steps to workflow ([240a3b1](https://github.com/trallnag/testbench-tuna/commit/240a3b130517a4e26d26db93c9637c5d7c5bc6a0))
+* Add explicit codecov token ([9e909c1](https://github.com/trallnag/testbench-tuna/commit/9e909c10e75f05c4c899772ddae958e97c6bc46e))
+* Add restore-keys parameter to pre-commit cache step ([85d8533](https://github.com/trallnag/testbench-tuna/commit/85d853318276b712b955966196659dabb3661013))
+* Adjust cache keys again ([c0e720f](https://github.com/trallnag/testbench-tuna/commit/c0e720f51d0a056bd6d0fd15dbeefc286290ed85))
+* Adjust caching keys ([59ffa0b](https://github.com/trallnag/testbench-tuna/commit/59ffa0b4d15743658c39c5822b5b3751e0b9baa8))
+* Adjust workflow asdf caching ([12e738b](https://github.com/trallnag/testbench-tuna/commit/12e738bcf1ecc3d7104e074c409da36455456822))
+* Bump poetry to 1.1.15 ([6c65151](https://github.com/trallnag/testbench-tuna/commit/6c6515181130cbe39451c772384d5abc6cbf8d3e))
+* Bump poetry to 1.2.0 ([16902c6](https://github.com/trallnag/testbench-tuna/commit/16902c615288b13ba1b9522f339636758c574491))
+* Downgrade to poetry 1.1.14 ([6c6fc38](https://github.com/trallnag/testbench-tuna/commit/6c6fc380e0fff0965d2d0e6184df0082edf99c67))
+* Dummy ([e7fa119](https://github.com/trallnag/testbench-tuna/commit/e7fa11978d83e5b8068aeb1f6c69c3d8bcd75569))
+* Enhance scripts setup ([3d39239](https://github.com/trallnag/testbench-tuna/commit/3d3923947c689b60b7c0d78ce0c93b6cc5319da6))
+* **flake8:** Ignore E501 "line too long" rule ([342d2d2](https://github.com/trallnag/testbench-tuna/commit/342d2d2d6a4d2ec9863244284411baaaafe0ceec))
+* Pin version of Poetry to fix caching ([f046b87](https://github.com/trallnag/testbench-tuna/commit/f046b870117915d00404210142f5ce03516af7fe))
+* Remove markdownlint-cli2 hook ([facdfc4](https://github.com/trallnag/testbench-tuna/commit/facdfc4d3bd565f7fb9ebd7ee987d7128b438d13))
+* Remove unnecessary chars ([1abb2d3](https://github.com/trallnag/testbench-tuna/commit/1abb2d329cec20c5293622a4fdfec50bdcbc95cf))
+* Rename poetry repo for TestPyPI ([c5a3823](https://github.com/trallnag/testbench-tuna/commit/c5a38234fda7a50054d68c2c2bddc4a013f325d1))
+* Work on caching keys ([340d247](https://github.com/trallnag/testbench-tuna/commit/340d2476ebedc128b0fe4295e3b6af5d643c9865))
+
+
+### Docs
+
+* Dummy ([5ed3317](https://github.com/trallnag/testbench-tuna/commit/5ed3317cf5465e8113e8e1505b6f773bfd7bbbd3))
+* Move docs-internal to docs/devel ([40d2ec4](https://github.com/trallnag/testbench-tuna/commit/40d2ec4479e47f1a2556a0c10ae11569f951a57c))
+* Remove two sentences from CONTRIBUTING.md ([50e35d4](https://github.com/trallnag/testbench-tuna/commit/50e35d48c01d5a07ef3fb894fc7ca8382fd96cf4))
+* Update readme ([a0b9247](https://github.com/trallnag/testbench-tuna/commit/a0b924758f7ccc2669c216a720422751cd2cfbb0))
+* Update VS Code settings example ([071d141](https://github.com/trallnag/testbench-tuna/commit/071d141b453401baa9184af32c259f8e2651b967))
+
 ## [0.2.2](https://github.com/trallnag/testbench-tuna/compare/v0.2.1...v0.2.2) (2022-08-18)
 
 
