@@ -95,7 +95,7 @@ jobs:
       # Asdf.
 
       - name: Install asdf
-        uses: asdf-vm/actions/setup@v1
+        uses: asdf-vm/actions/setup@v2
 
       - name: Cache asdf
         id: cache-asdf
@@ -109,7 +109,7 @@ jobs:
 
       - name: Install tools with asdf
         if: strategy.job-index == 0 && steps.cache-asdf.outputs.cache-hit != 'true'
-        uses: asdf-vm/actions/install@v1
+        uses: asdf-vm/actions/install@v2
 
       - name: Run shfmt
         if: strategy.job-index == 0
